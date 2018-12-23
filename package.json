@@ -1,0 +1,22 @@
+{
+  "name": "markdown-ref",
+  "version": "1.0.0",
+  "description": "Markdown reference application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchilson/markdown-ref.git"
+  },
+  "author": "Mike Chilson",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mchilson/markdown-ref/issues"
+  },
+  "homepage": "https://github.com/mchilson/markdown-ref#readme",
+  "devDependencies": {
+    "electron": "^4.0.0"
+  }
+}
