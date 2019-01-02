@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, dialog, remote, BrowserWindow, Menu } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -6,13 +6,13 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 700, height: 600 })
+  win = new BrowserWindow({ width: 600, height: 550 })
 
   // and load the index.html of the app.
   win.loadFile('src/index.html')
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -21,6 +21,65 @@ function createWindow () {
     // when you should delete the corresponding element.
     win = null
   })
+
+  // Menu
+  var menu = Menu.buildFromTemplate([
+    {
+        label: 'File',
+        submenu: [
+            {
+              label:'Exit',
+              click() { 
+                app.quit() 
+              }
+            }
+        ]
+    },
+
+    {
+      label: 'Edit',
+      submenu: [
+        {
+          label: 'Cut',
+          accelerator: 'CmdOrCtrl+X'
+        },
+        {
+          label: 'Copy',
+          accelerator: 'CmdOrCtrl+C'
+        },
+        {
+          label: 'Paste',
+          accelerator: 'CmdOrCtrl+V'
+        }
+      ]
+    },
+
+    {
+      label: 'About',
+      submenu: [
+        {
+          label:'About Markdown Reference',
+          accelerator: 'CmdOrCtrl+Shift+A',
+          click() {
+            const options = {
+              type: 'info',
+              buttons: ['Ok'],
+              defaultId: 1,
+              title: 'About',
+              message: 'Markdown Reference Version 1.0',
+              detail: 'All Rights Reserved, Copyright 2019, Mike Chilson\nLicensed under the GNU 3.0 Public License.'
+            };
+            dialog.showMessageBox(win, options);
+          }
+        }
+      ]
+    }
+
+
+  ])
+  Menu.setApplicationMenu(menu);   
+
+
 }
 
 // This method will be called when Electron has finished
