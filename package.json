@@ -1,5 +1,5 @@
 {
-  "name": "markdown-ref",
+  "name": "QuickMark",
   "version": "1.0.0",
   "description": "Markdown reference application",
   "main": "main.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mchilson/markdown-ref.git"
+    "url": "git+https://github.com/mchilson/quickmark.git"
   },
   "author": "Mike Chilson",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/mchilson/markdown-ref/issues"
+    "url": "https://github.com/mchilson/quickmark/issues"
   },
-  "homepage": "https://github.com/mchilson/markdown-ref#readme",
+  "homepage": "https://github.com/mchilson/quickmark#readme",
   "devDependencies": {
     "electron": "^4.0.0"
   }
